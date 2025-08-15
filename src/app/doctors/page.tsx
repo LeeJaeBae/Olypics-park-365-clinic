@@ -350,11 +350,9 @@ export default function DoctorsPage() {
             <div className="max-w-6xl mx-auto">
               {/* Section Title */}
               <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold text-primary mb-2">
-                  올림픽365의원의 철학
-                </h2>
+                <h2 className="text-xl text-primary">올림픽365의원의 철학</h2>
                 <p
-                  className="text-xl text-primary/70 font-medium"
+                  className="text-xl text-primary font-medium"
                   style={{ fontFamily: "space-grotesk" }}
                 >
                   PHILOSOPHY
@@ -362,17 +360,22 @@ export default function DoctorsPage() {
               </div>
 
               {/* Philosophy Icons */}
-              <div className="flex justify-center items-center gap-12 md:gap-24 mb-20">
+              <div
+                className="flex justify-center items-center gap-12 md:gap-24 mb-20"
+                style={{
+                  fontFamily: "optique-display",
+                }}
+              >
                 <div className="flex flex-col items-center">
-                  <div className="w-32 h-32 border-2 border-primary/30 flex items-center justify-center">
+                  <div className="w-32 h-32 border-1 border-primary flex items-center justify-center">
                     <span className="text-xl font-bold text-primary">
-                      진문성
+                      전문성
                     </span>
                   </div>
                 </div>
 
                 <div className="flex flex-col items-center">
-                  <div className="w-32 h-32 border-2 border-primary/30 rounded-full flex items-center justify-center">
+                  <div className="w-32 h-32 border-1 border-primary rounded-full flex items-center justify-center">
                     <span className="text-xl font-bold text-primary">
                       신속성
                     </span>
@@ -380,8 +383,20 @@ export default function DoctorsPage() {
                 </div>
 
                 <div className="flex flex-col items-center">
-                  <div className="w-0 h-0 border-l-[64px] border-l-transparent border-r-[64px] border-r-transparent border-b-[110px] border-b-primary/30 relative">
-                    <span className="absolute top-10 left-1/2 transform -translate-x-1/2 text-xl font-bold text-primary">
+                  <div className="relative w-32 h-32 flex items-center justify-center">
+                    <svg
+                      className="absolute inset-0"
+                      viewBox="0 0 128 110"
+                      fill="none"
+                    >
+                      <path
+                        d="M64 0 L128 110 L0 110 Z"
+                        stroke="currentColor"
+                        strokeWidth="1"
+                        className="text-primary"
+                      />
+                    </svg>
+                    <span className="text-xl font-bold text-primary relative">
                       따뜻함
                     </span>
                   </div>
@@ -389,8 +404,8 @@ export default function DoctorsPage() {
               </div>
 
               {/* Philosophy Content */}
-              <div className="space-y-8 text-center max-w-4xl mx-auto">
-                <h3 className="text-2xl md:text-3xl font-bold text-primary">
+              <div className="space-y-8 max-w-4xl mx-auto">
+                <h3 className="text-xl md:text-2xl font-semibold text-primary">
                   365일, 당신의 골든 타임을 지킵니다
                 </h3>
 
@@ -433,11 +448,11 @@ export default function DoctorsPage() {
             <div className="max-w-6xl mx-auto">
               {/* Section Title */}
               <div className="text-center mb-16">
-                <h2 className="text-3xl md:text-4xl font-bold text-primary mb-2">
+                <h2 className="text-xl md:text-2xl font-semibold text-primary mb-2">
                   병원 둘러보기
                 </h2>
                 <p
-                  className="text-xl text-primary/70 font-medium"
+                  className="text-xl text-primary font-medium"
                   style={{ fontFamily: "space-grotesk" }}
                 >
                   OUR FACILITIES
