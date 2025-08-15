@@ -9,7 +9,7 @@
 }
 
 :root {
-  --background: #efede8;
+  --background: #fefcf8;
   --foreground: #171717;
 }
 
@@ -19,7 +19,7 @@
   --font-sans: "Pretendard", Arial, Helvetica, sans-serif;
   --font-mono: "Pretendard", Arial, Helvetica, sans-serif;
 
-  --color-primary: #27527e;
+  --color-primary: #1d5b9b;
 }
 
 @media (prefers-color-scheme: dark) {

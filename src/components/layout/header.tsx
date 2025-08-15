@@ -9,7 +9,7 @@ export default function Header() {
 
   const navItems = [
     { label: "원장소개", href: "/doctors" },
-    { label: "의원소개", href: "#" },
+    { label: "의원소개", href: "/introduction" },
     { label: "치료사례", href: "#" },
   ];
 
