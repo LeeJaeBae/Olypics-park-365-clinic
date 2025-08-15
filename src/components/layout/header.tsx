@@ -8,9 +8,9 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { label: "원장소개", href: "/director" },
-    { label: "의원소개", href: "/clinic" },
-    { label: "치료사례", href: "/cases" },
+    { label: "원장소개", href: "/doctors" },
+    { label: "의원소개", href: "#" },
+    { label: "치료사례", href: "#" },
   ];
 
   return (
