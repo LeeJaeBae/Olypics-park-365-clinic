@@ -1,10 +1,9 @@
-import Header from "@/components/layout/header";
-import DoctorsPage from "./doctors/page";
+import HeroPage from "./hero/page";
 
 export default function Home() {
   return (
     <>
-      <DoctorsPage />
+      <HeroPage />
     </>
   );
 }
