@@ -1,6 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  AnimatedSection,
+  MedicalButton,
+} from "@/components/ui/AnimationComponents";
 
 export default function DoctorsPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -18,22 +23,24 @@ export default function DoctorsPage() {
     <>
       <main className="space-y-12 pt-[100px] bg-background text-primary break-keep">
         {/* Hero Section */}
-        <section className="container mx-auto pb-16 px-6 md:px-0">
+        <AnimatedSection className="container mx-auto pb-16 px-6 md:px-0">
           <div className="max-w-7xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               {/* Left side - Text */}
-              <div className="space-y-6">
+              <motion.div
+                className="space-y-6"
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              >
                 <div className="space-y-6 text-center">
-                  <p
-                    className="text-xl text-primary font-[600]"
-                    style={{
-                      fontFamily: "space-grotesk",
-                    }}
-                  >
+                  <p className="text-xl text-primary font-[600] font-space-grotesk">
                     2025.08.20 OPEN
                   </p>
                   <h1 className="text-4xl md:text-5xl font-medium">
-                    올림픽파크365의원
+                    올림픽파크
+                    <span className="font-space-grotesk">365</span>
+                    의원
                   </h1>
                   <p
                     className="text-xl md:text-2xl text-primary font-semibold"
@@ -58,22 +65,44 @@ export default function DoctorsPage() {
                     못하는 영역의 확장을 하고자 하는 것이 목표 입니다.
                   </p>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Right side - Image placeholder */}
-              <div className="relative">
-                <div className="bg-gray-300 h-[50rem] rounded-3xl overflow-hidden"></div>
-              </div>
+              <motion.div
+                className="relative"
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              >
+                <motion.div
+                  className="bg-gray-300 h-[50rem] rounded-3xl overflow-hidden"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.div>
             </div>
           </div>
-        </section>
+        </AnimatedSection>
 
         {/* Our Story Section */}
-        <section className="py-20 bg-background">
+        <AnimatedSection className="py-20 bg-background" useInView={true}>
           <div className="container mx-auto px-6">
-            <div className="max-w-6xl mx-auto border border-primary/20 p-12">
+            <motion.div
+              className="max-w-6xl mx-auto border border-primary/20 p-12"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              whileHover={{ boxShadow: "0 10px 40px rgba(29, 91, 155, 0.1)" }}
+            >
               {/* Title above the content */}
-              <div className="mb-8">
+              <motion.div
+                className="mb-8"
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
                 <h2 className="text-3xl md:text-4xl font-bold text-primary">
                   두 원장의 특별한 만남
                 </h2>
@@ -83,16 +112,32 @@ export default function DoctorsPage() {
                 >
                   OUR STORY
                 </p>
-              </div>
+              </motion.div>
 
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 {/* Left side - Image */}
-                <div className="relative">
-                  <div className="bg-gray-300 aspect-[4/5]"></div>
-                </div>
+                <motion.div
+                  className="relative"
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                >
+                  <motion.div
+                    className="bg-gray-300 aspect-[4/5] overflow-hidden"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </motion.div>
 
                 {/* Right side - Text */}
-                <div className="space-y-4">
+                <motion.div
+                  className="space-y-4"
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                >
                   <p className="text-md leading-relaxed">
                     박종석 원장은 친구의 권유로 의대에 진학, 이렇게 원장은
                     투석과 이식을 반복하던 어머니를 지켜보며 의사가 되어야겠다고
@@ -122,18 +167,24 @@ export default function DoctorsPage() {
                     체계의 빈틈을 메울 수 있는 병원" 이라는 목표로
                     "올림픽파크365의원"을 설립하게 되었습니다.
                   </p>
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           </div>
-        </section>
+        </AnimatedSection>
 
         {/* Doctor Introduction Section */}
-        <section className="py-20 bg-background">
+        <AnimatedSection className="py-20 bg-background" useInView={true}>
           <div className="container mx-auto px-6">
             <div className="max-w-6xl mx-auto">
               {/* Section Title */}
-              <div className="text-center mb-12">
+              <motion.div
+                className="text-center mb-12"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
                 <h2 className="text-3xl md:text-4xl font-bold text-primary mb-2">
                   원장 소개
                 </h2>
@@ -143,20 +194,33 @@ export default function DoctorsPage() {
                 >
                   INTRODUCTION
                 </p>
-              </div>
+              </motion.div>
 
               {/* Doctor Profile Box */}
-              <div className="border border-primary/20 p-12">
+              <motion.div
+                className="border border-primary/20 p-12"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                whileHover={{
+                  boxShadow: "0 15px 50px rgba(29, 91, 155, 0.12)",
+                }}
+              >
                 <div className="space-y-8">
                   {/* Quote */}
-                  <h3
+                  <motion.h3
                     className="text-2xl md:text-3xl text-primary"
                     style={{
                       fontFamily: "optique-display",
                     }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, delay: 0.2 }}
                   >
                     "결정적인 순간과 세심한 관리, 모두 놓치지 않습니다."
-                  </h3>
+                  </motion.h3>
 
                   <p className="text-md">
                     응급실에서 수많은 긴급 상황을 마주하며, 빠른 판단력과 시술
@@ -167,8 +231,18 @@ export default function DoctorsPage() {
 
                   <div className="grid md:grid-cols-2 gap-12 items-start mt-12">
                     {/* Left side - Doctor Image and Name */}
-                    <div className="flex flex-col">
-                      <div className="bg-gray-300 w-full aspect-[3/4] mb-6"></div>
+                    <motion.div
+                      className="flex flex-col"
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.3 }}
+                    >
+                      <motion.div
+                        className="bg-gray-300 w-full aspect-[3/4] mb-6 overflow-hidden"
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.3 }}
+                      />
                       <div className="text-left">
                         <h3 className="text-2xl font-medium text-primary mb-2">
                           박용석 대표원장
@@ -177,10 +251,16 @@ export default function DoctorsPage() {
                           응급의학과 전문의
                         </p>
                       </div>
-                    </div>
+                    </motion.div>
 
                     {/* Right side - Credentials */}
-                    <div className="space-y-6">
+                    <motion.div
+                      className="space-y-6"
+                      initial={{ opacity: 0, x: 30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.5 }}
+                    >
                       <div>
                         <h4 className="font-bold text-md ">프로필</h4>
                         <ul className=" text-primary/80">
@@ -235,45 +315,70 @@ export default function DoctorsPage() {
                           </li>
                         </ul>
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
-        </section>
+        </AnimatedSection>
 
         {/* Second Doctor Introduction */}
-        <section className="py-20 bg-background">
+        <AnimatedSection className="py-20 bg-background" useInView={true}>
           <div className="container mx-auto px-6">
             <div className="max-w-6xl mx-auto">
-              <div className="border border-primary/20 p-12">
+              <motion.div
+                className="border border-primary/20 p-12"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                whileHover={{
+                  boxShadow: "0 15px 50px rgba(29, 91, 155, 0.12)",
+                }}
+              >
                 <div className="space-y-8">
                   {/* Quote */}
-                  <h3
+                  <motion.h3
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1, delay: 0.2 }}
                     className="text-2xl md:text-3xl text-primary"
                     style={{
                       fontFamily: "optique-display",
                     }}
                   >
                     "타이밍을 놓치지 않는 진료"
-                  </h3>
+                  </motion.h3>
 
-                  <p className="text-md">
+                  <motion.p
+                    className="text-md"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                  >
                     소아부터 성인까지, 가장 알맞은 시점에 필요한 치료를
                     제공합니다.
                     <br />
                     장기와 근골격을 연속으로 스캔해 원인을 정확히 찾고, 치료와
                     회복 계획까지 한 번에 제시합니다.
-                  </p>
+                  </motion.p>
 
                   <div className="grid md:grid-cols-2 gap-12 items-start mt-12">
-                    {/* Right side - Doctor Image and Name */}
-                    <div className="order-2 md:order-1">
-                      <div className="space-y-4">
+                    {/* Right side - Credentials */}
+                    <motion.div
+                      className="order-2 md:order-1"
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.5 }}
+                    >
+                      <div className="space-y-6">
                         <div>
                           <h4 className="font-bold text-md">프로필</h4>
-                          <ul className="text-primary">
+                          <ul className="text-primary/80">
                             <li>국군춘천병원 응급의학과장</li>
                             <li>남양주한양병원 지역응급의료센터 임상과장</li>
                             <li>
@@ -288,14 +393,14 @@ export default function DoctorsPage() {
                         </div>
 
                         <div>
-                          <ul className="text-primary">
+                          <ul className="text-primary/80">
                             <li>소방 119 상황실 구급지도 의사</li>
                             <li>국립중앙의료원 중앙응급의료상황실 전문의</li>
                           </ul>
                         </div>
 
                         <div>
-                          <ul className="text-primary">
+                          <ul className="text-primary/80">
                             <li>대한응급의학회 정회원</li>
                             <li>대한소아응급의학회 평생회원</li>
                             <li>대한구급지도사회 정회원</li>
@@ -311,7 +416,7 @@ export default function DoctorsPage() {
                         </div>
 
                         <div>
-                          <ul className="text-primary">
+                          <ul className="text-primary/80">
                             <li>대한재활의학회 TPI(통증유발점주사) 인증</li>
                             <li style={{ fontFamily: "space-grotesk" }}>
                               KAOM professional diploma in musculoskeletal
@@ -323,33 +428,49 @@ export default function DoctorsPage() {
                           </ul>
                         </div>
                       </div>
-                    </div>
+                    </motion.div>
 
-                    {/* Left side - Image */}
-                    <div className="order-1 md:order-2 flex flex-col ">
-                      <div className="bg-gray-300 w-full aspect-[3/4] mb-6"></div>
-                      <div className="">
-                        <h3 className="text-2xl  text-primary mb-2">
+                    {/* Left side - Doctor Image and Name */}
+                    <motion.div
+                      className="order-1 md:order-2 flex flex-col"
+                      initial={{ opacity: 0, x: 30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.8, delay: 0.3 }}
+                    >
+                      <motion.div
+                        className="bg-gray-300 w-full aspect-[3/4] mb-6 overflow-hidden"
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                      <div className="text-left">
+                        <h3 className="text-2xl font-medium text-primary mb-2">
                           이영기 대표원장
                         </h3>
-                        <p className="text-md text-primary">
+                        <p className="text-md text-primary/70">
                           응급의학과 전문의
                         </p>
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
-        </section>
+        </AnimatedSection>
 
         {/* Philosophy Section */}
-        <section className="py-20 bg-background">
+        <AnimatedSection className="py-20 bg-background" useInView={true}>
           <div className="container mx-auto px-6">
             <div className="max-w-6xl mx-auto">
               {/* Section Title */}
-              <div className="text-center mb-16">
+              <motion.div
+                className="text-center mb-16"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
                 <h2 className="text-xl text-primary">올림픽365의원의 철학</h2>
                 <p
                   className="text-xl text-primary font-medium"
@@ -357,33 +478,58 @@ export default function DoctorsPage() {
                 >
                   PHILOSOPHY
                 </p>
-              </div>
+              </motion.div>
 
               {/* Philosophy Icons */}
-              <div
-                className="flex justify-center items-center gap-12 md:gap-24 mb-20"
+              <motion.div
+                className="flex justify-center items-center gap-6 sm:gap-12 md:gap-24 mb-20"
                 style={{
                   fontFamily: "optique-display",
                 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <div className="flex flex-col items-center">
-                  <div className="w-32 h-32 border-1 border-primary flex items-center justify-center">
-                    <span className="text-xl font-bold text-primary">
+                <motion.div
+                  className="flex flex-col items-center"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  whileHover={{ scale: 1.1 }}
+                >
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 border-1 border-primary flex items-center justify-center">
+                    <span className="text-sm sm:text-base md:text-xl font-bold text-primary">
                       전문성
                     </span>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="flex flex-col items-center">
-                  <div className="w-32 h-32 border-1 border-primary rounded-full flex items-center justify-center">
-                    <span className="text-xl font-bold text-primary">
+                <motion.div
+                  className="flex flex-col items-center"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  whileHover={{ scale: 1.1 }}
+                >
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 border-1 border-primary rounded-full flex items-center justify-center">
+                    <span className="text-sm sm:text-base md:text-xl font-bold text-primary">
                       신속성
                     </span>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className="flex flex-col items-center">
-                  <div className="relative w-32 h-32 flex items-center justify-center">
+                <motion.div
+                  className="flex flex-col items-center"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
+                  whileHover={{ scale: 1.1 }}
+                >
+                  <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 flex items-center justify-center">
                     <svg
                       className="absolute inset-0"
                       viewBox="0 0 128 110"
@@ -396,20 +542,38 @@ export default function DoctorsPage() {
                         className="text-primary"
                       />
                     </svg>
-                    <span className="text-xl font-bold text-primary relative">
+                    <span className="text-sm sm:text-base md:text-xl font-bold text-primary relative">
                       따뜻함
                     </span>
                   </div>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
 
               {/* Philosophy Content */}
-              <div className="space-y-8 max-w-4xl mx-auto">
-                <h3 className="text-xl md:text-2xl font-semibold text-primary">
+              <motion.div
+                className="space-y-8 max-w-4xl mx-auto"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              >
+                <motion.h3
+                  className="text-xl md:text-2xl font-semibold text-primary"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                >
                   365일, 당신의 골든 타임을 지킵니다
-                </h3>
+                </motion.h3>
 
-                <div className="space-y-6 text-md leading-relaxed">
+                <motion.div
+                  className="space-y-6 text-md leading-relaxed"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                >
                   <p>
                     지난 15년간 수많은 생명을 살리며 한 가지 고민을 품었습니다.
                     <br />
@@ -436,18 +600,24 @@ export default function DoctorsPage() {
                     이제 올림픽파크365의원이 어려분의 건강한 일상을 지키는
                     든든한 친구가 되어 드릴게요.
                   </p>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             </div>
           </div>
-        </section>
+        </AnimatedSection>
 
         {/* Facilities Section */}
-        <section className="py-20 bg-background">
+        <AnimatedSection className="py-20 bg-background" useInView={true}>
           <div className="container mx-auto px-6">
             <div className="max-w-6xl mx-auto">
               {/* Section Title */}
-              <div className="text-center mb-16">
+              <motion.div
+                className="text-center mb-16"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
                 <h2 className="text-xl md:text-2xl font-semibold text-primary mb-2">
                   병원 둘러보기
                 </h2>
@@ -457,15 +627,27 @@ export default function DoctorsPage() {
                 >
                   OUR FACILITIES
                 </p>
-              </div>
+              </motion.div>
 
               {/* Carousel */}
-              <div className="relative">
+              <motion.div
+                className="relative"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+              >
                 {/* Main Image Container */}
-                <div className="relative overflow-hidden">
-                  <div
-                    className="flex transition-transform duration-500 ease-in-out"
-                    style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                <div className="relative overflow-hidden rounded-lg">
+                  <motion.div
+                    className="flex"
+                    animate={{ x: `-${currentSlide * 100}%` }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 30,
+                      duration: 0.6,
+                    }}
                   >
                     {/* Slide 1 */}
                     <div className="min-w-full">
@@ -490,14 +672,16 @@ export default function DoctorsPage() {
                     <div className="min-w-full">
                       <div className="bg-gray-600 aspect-[16/9]"></div>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
 
                 {/* Navigation Arrows */}
-                <button
+                <motion.button
                   onClick={prevSlide}
-                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-3 rounded-full shadow-lg transition-colors"
+                  className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-3 rounded-full shadow-lg transition-all"
                   aria-label="Previous slide"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   <svg
                     className="w-6 h-6 text-primary"
@@ -512,12 +696,14 @@ export default function DoctorsPage() {
                       d="M15 19l-7-7 7-7"
                     />
                   </svg>
-                </button>
+                </motion.button>
 
-                <button
+                <motion.button
                   onClick={nextSlide}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-3 rounded-full shadow-lg transition-colors"
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-3 rounded-full shadow-lg transition-all"
                   aria-label="Next slide"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
                 >
                   <svg
                     className="w-6 h-6 text-primary"
@@ -532,25 +718,29 @@ export default function DoctorsPage() {
                       d="M9 5l7 7-7 7"
                     />
                   </svg>
-                </button>
+                </motion.button>
 
                 {/* Dots Indicator */}
                 <div className="flex justify-center gap-2 mt-6">
                   {[...Array(totalSlides)].map((_, index) => (
-                    <button
+                    <motion.button
                       key={index}
                       onClick={() => setCurrentSlide(index)}
-                      className={`w-3 h-3 rounded-full transition-colors ${
-                        currentSlide === index ? "bg-primary" : "bg-primary/30"
+                      className={`h-3 rounded-full transition-all ${
+                        currentSlide === index
+                          ? "bg-primary w-8"
+                          : "bg-primary/30 w-3"
                       }`}
                       aria-label={`Go to slide ${index + 1}`}
+                      whileHover={{ scale: 1.2 }}
+                      whileTap={{ scale: 0.9 }}
                     />
                   ))}
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
-        </section>
+        </AnimatedSection>
       </main>
     </>
   );

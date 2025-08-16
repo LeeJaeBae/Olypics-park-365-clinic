@@ -8,6 +8,7 @@
   font-style: normal;
 }
 
+
 :root {
   --background: #fefcf8;
   --foreground: #171717;
@@ -35,4 +36,56 @@ body {
   font-size: 14px;
   line-height: 1.5;
   font-family: "Pretendard", Arial, Helvetica, sans-serif;
+}
+
+/* Apply Space Grotesk to numbers and English text */
+@layer base {
+  /* CSS Variable for Space Grotesk font */
+  :root {
+    --font-space-grotesk: "Space Grotesk";
+  }
+  
+  /* Utility class for Space Grotesk font */
+  .font-space-grotesk {
+    font-family: var(--font-space-grotesk), "Pretendard", Arial, Helvetica, sans-serif !important;
+  }
+  
+  /* Apply mixed font by default */
+  * {
+
+    /* 영어 -> Space Grotesk */
+    /* 한글 -> Pretendard */
+    /* 숫자 -> Space Grotesk */
+    /* 특수문자 -> Space Grotesk */
+    /* 기타 -> Space Grotesk */
+    /* 한글 -> Pretendard */
+    /* 숫자 -> Space Grotesk */
+
+    font-family: "Space Grotesk", "Pretendard", Arial, Helvetica, sans-serif;
+
+  }
+}
+
+/* Define unicode ranges for mixed font usage */
+@supports (font-family: "Space Grotesk") {
+  /* Numbers and English letters */
+  @font-face {
+    font-family: "MixedFont";
+    src: local("Space Grotesk"), local("Space Grotesk Variable");
+    unicode-range: U+0030-0039, U+0041-005A, U+0061-007A; /* 0-9, A-Z, a-z */
+    font-display: swap;
+  }
+  
+  /* Korean and other characters */
+  @font-face {
+    font-family: "MixedFont";
+    src: url("/fonts/PretendardVariable.woff2") format("woff2");
+    unicode-range: U+0000-002F, U+003A-0040, U+005B-0060, U+007B-10FFFF; /* Everything else */
+    font-display: swap;
+  }
+  
+  /* Apply mixed font to body */
+  body {
+    font-family: "MixedFont", "Pretendard", var(--font-space-grotesk), Arial, Helvetica, sans-serif;
+  }
 }
